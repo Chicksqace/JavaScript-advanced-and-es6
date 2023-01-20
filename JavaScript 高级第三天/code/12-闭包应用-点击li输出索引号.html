@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>榴莲</li>
+        <li>臭豆腐</li>
+        <li>鲱鱼罐头</li>
+        <li>大猪蹄子</li>
+    </ul>
+    <script>
+        // 闭包应用-点击li输出当前li的索引号
+        // 1. 我们可以利用动态添加属性的方式
+        var lis=document.querySelector('.nav').querySelectorAll('li')
+        for(var i=0;i<lis.length;i++){
+            // 下面的点击事件是一个异步任务，而是点击了才执行，前面的是同步任务，会先执行，因此i已经变成了4
+            lis[i].index=i
+            lis[i].onclick=function(){
+                console.log(this.index);
+            }
+        }
+        // 2. 利用闭包的方式得到当前小li 的索引号
+        for(var i=0;i<lis.length;i++){
+            // 创建了四个立即执行函数 立即执行函数最后面的（）的意思是执行，也可以传入一个参数
+            // 立即执行函数也成为小闭包因为立即执行函数里面的任何一个函数都可以使用它i的变量
+            (function(i){
+                // console.log(i);
+                lis[i].onclick=function(){
+                console.log(this.index);
+            }
+            })(i);
+        }
+
+    </script>
+</body>
+
+</html>
