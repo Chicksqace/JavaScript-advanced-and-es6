@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 函数体中只有一句代码，且代码的执行结果就是返回值，可以省略大括号
+		// const sum=(a,b)=>alert(a+b)
+		// sum(1,2)
+		
+
+		//  如果形参只有一个，可以省略小括号
+		// const fn=v=>alert(v)
+		// fn(2)
+
+
+		// 箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this。
+		function fn(){
+			console.log(this);
+			return ()=>{
+				console.log(this);
+			}
+		}
+		const obj={name:'小明'}
+		const a=fn.call(obj);
+		a();
+	</script>
+</body>
+</html>

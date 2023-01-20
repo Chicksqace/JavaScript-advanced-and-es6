@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扩展运算符</title>
+</head>
+<body>
+	<div>1</div>
+	<div>4</div>
+	<div>3</div>
+	<div>6</div>
+	<div>2</div>
+	<div>5</div>
+	<script type="text/javascript">
+		// 扩展运算符可以将数组拆分成以逗号分隔的参数序列
+		let arr=[1,2,3]
+		console.log(...arr);
+		// 与上面等同
+		console.log(1,2,3);
+
+		// 扩展运算符应用于数组合并
+		// let arr1=[1,2,3]
+		// let arr2=[4,5,6]
+		// let arr3=[...arr1,...arr2]
+		// console.log(arr3);
+		// push方法来合并数组
+		// let ary1=[1,2,4]
+		// let ary2=[3,5,6]
+		// 把arr2内容放到ary1中
+		// let arr=arr1.push(...arr2)   6
+		// push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+		// arr1.push(...arr2)
+		// console.log(arr1);
+
+
+		// var oDiv=document.getElementsByTagName('div');
+		// console.log(oDiv);//伪数组，无法使用数组下的方法
+		// const arr=[...oDiv];
+		// 变成了真数组，可以使用方法
+		// console.log(arr);
+		// arr.push('a')
+		// console.log(arr);
+	</script>
+</body>
+</html>
